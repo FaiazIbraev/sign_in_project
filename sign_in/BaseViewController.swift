@@ -16,12 +16,12 @@ class BaseViewController: UIViewController{
         setupConstraints()
         setupValues()
 
-        view.backgroundColor = .white
+       
         
     }
     
     func setupViews(){
-        
+        view.backgroundColor = .white
     }
     
     func setupConstraints(){
