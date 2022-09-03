@@ -11,6 +11,7 @@ import SnapKit
 class LoginViewController: BaseViewController{
     
     var viewModel = LoginViewModel()
+    
     private lazy var mainLabel : UILabel = {
         let mainLabel = UILabel()
         mainLabel.text = "Sign in"
@@ -126,13 +127,13 @@ class LoginViewController: BaseViewController{
     private lazy var signUpLabel : UILabel = {
         let mainLabel = UILabel()
         mainLabel.text = "Sign Up"
-        mainLabel.textColor = UIColor(red: 0.322, green: 0.329, blue: 0.392, alpha: 1)
+        mainLabel.textColor = .blue
         mainLabel.textAlignment = .left
         mainLabel.font = .systemFont(ofSize: 18, weight: .semibold)
-        mainLabel.backgroundColor = .gray
         
-        let tappedForgot = UITapGestureRecognizer(target: self, action: #selector(signUpTapped))
-        mainLabel.addGestureRecognizer(tappedForgot)
+        mainLabel.isUserInteractionEnabled = true
+        let tappedSignUp = UITapGestureRecognizer(target: self, action: #selector(signUpTapped))
+        mainLabel.addGestureRecognizer(tappedSignUp)
         
         return mainLabel
     }()
@@ -210,7 +211,7 @@ class LoginViewController: BaseViewController{
             if isAuthorized{
                 self.appDelegate.mainApp()
             }else{
-                self.forgotPassButtonLabel
+                self.forgotPassButtonLabel.text = "Wrong data"
             }
         }
         
@@ -229,7 +230,7 @@ extension LoginViewController{
     }
 
     @objc func signUpTapped(){
-        print("hi")
+        print("signUpTapped")
         let vc = SignUpViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -238,18 +239,22 @@ extension LoginViewController{
         
         guard let login = userNameTextField.text, let password = passwordTextField.text else {return}
         
-        if login.isEmpty && password.isEmpty {
-            appDelegate.mainApp()
+        if !login.isEmpty && !password.isEmpty {
+            viewModel.authorizeUser(login: login, password: password)
         }
         
         
-        let vc = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = SignUpViewController()
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension LoginViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
     }
 }
+
+
+
