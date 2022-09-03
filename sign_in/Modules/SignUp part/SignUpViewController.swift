@@ -10,6 +10,18 @@ import SnapKit
 
 class SignUpViewController : BaseViewController{
     
+    private lazy var backButton: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "path")
+        image.contentMode = .scaleAspectFit
+        
+        let backTapped = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(backTapped)
+        
+        return image
+    }()
+    
     private lazy var mainLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign Up"
@@ -131,11 +143,11 @@ class SignUpViewController : BaseViewController{
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .blue
         label.textAlignment = .left
-        label.backgroundColor = .gray
         
-        
-        let labelTapped = UIGestureRecognizer(target: self, action: #selector(signInTapped))
         label.isUserInteractionEnabled = true
+        let labelTapped = UITapGestureRecognizer(target: self, action: #selector(signInTapped))
+        
+        
         label.addGestureRecognizer(labelTapped)
         
         return label
@@ -153,6 +165,7 @@ class SignUpViewController : BaseViewController{
         view.addSubview(secureImage2)
         view.addSubview(signUpButton)
         view.addSubview(lastStack)
+        view.addSubview(backButton)
     }
 
     override func setupConstraints() {
@@ -162,6 +175,12 @@ class SignUpViewController : BaseViewController{
         
         [alreadyHaveAccountLabel, signInLabel].forEach{lastStack.addArrangedSubview($0)} // dobavlenie v stack text fieldov. $0 kajdyi ob`ekt v massive
         
+        
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            make.leading.equalToSuperview().offset(30)
+            make.height.equalTo(16)
+        }
         
         mainLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
@@ -218,8 +237,8 @@ extension SignUpViewController{
     
     @objc func signInTapped(){
         print("signInTapped")
-//        let vc = LoginViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.popViewController(animated: true)
+        
     }
     
     @objc func secureIconTapped(){
@@ -228,6 +247,11 @@ extension SignUpViewController{
     
     @objc func secureIconTapped2(){
         self.confirmPasswordTextField.isSecureTextEntry = !self.confirmPasswordTextField.isSecureTextEntry
+    }
+    
+    @objc func backButtonTapped(){
+        print("backButtonTapped")
+        navigationController?.popViewController(animated: true)
     }
     
 }

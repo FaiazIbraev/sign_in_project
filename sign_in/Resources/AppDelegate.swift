@@ -18,7 +18,18 @@ var window: UIWindow?
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        loginApp()
+        
+        if let user = UserDefaults.standard.string(forKey: "login"){
+            if user.isEmpty{
+                loginApp()
+            } else {
+                mainApp()
+            }
+        } else {
+            loginApp()
+        }
+        
+
         window.makeKeyAndVisible()
         
         return true
@@ -29,7 +40,7 @@ var window: UIWindow?
     }
     
     func mainApp(){
-        self.window?.rootViewController = navController(vc: MainViewController())
+        self.window?.rootViewController = navController(vc: MainTabBarController())
     }
     
     func navController(vc:UIViewController) -> UINavigationController{

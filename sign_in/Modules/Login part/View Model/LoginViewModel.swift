@@ -15,6 +15,7 @@ class LoginViewModel{
     
     func authorizeUser(login: String, password: String){
         if login.lowercased() == userName.lowercased() && password == self.password{
+            UserDefaults.standard.set("\(login.lowercased())", forKey: "login")
             isUserAuthorized!(true)
         } else{
             isUserAuthorized!(false)
