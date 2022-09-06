@@ -18,11 +18,11 @@ enum ViewControllerType{
         case .main:
             return MainViewController()
         case .profile:
-            return MainViewController()
+            return ProfileViewController()
         case .settings:
-            return MainViewController()
+            return SettingsVC()
         case .more:
-            return MainViewController()
+            return MoreVC()
         }
     }
     
@@ -33,7 +33,7 @@ enum ViewControllerType{
         case .profile:
             return "Profile"
         case .settings:
-            return "Setting"
+            return "Settings"
         case .more:
             return "More"
         }
@@ -42,26 +42,26 @@ enum ViewControllerType{
     var selectedImage: UIImage{
         switch self {
         case .main:
-            return UIImage(named: "home")!
+            return UIImage(named: "home")!.withTintColor(.blue)
         case .profile:
-            return UIImage(named: "profile")!
+            return UIImage(named: "profile")!.withTintColor(.blue)
         case .settings:
-            return UIImage(named: "home")!
+            return UIImage(named: "settings")!.withTintColor(.blue)
         case .more:
-            return UIImage(named: "home")!
+            return UIImage(named: "more")!.withTintColor(.blue)
         }
     }
     
     var unselectedImage: UIImage{
         switch self {
         case .main:
-            return UIImage(named: "home")!
+            return UIImage(named: "home")!.withTintColor(.white)
         case .profile:
-            return UIImage(named: "profile")!
+            return UIImage(named: "profile")!.withTintColor(.white)
         case .settings:
-            return UIImage(named: "home")!
+            return UIImage(named: "settings")!.withTintColor(.white)
         case .more:
-            return UIImage(named: "home")!
+            return UIImage(named: "more")!.withTintColor(.white)
         }
     }
     

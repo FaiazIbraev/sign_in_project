@@ -160,17 +160,17 @@ class LoginViewController: BaseViewController{
         
         mainLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(ComputedHeight(30))
         }
         
         iconImage.snp.makeConstraints { make in
-            make.top.equalTo(mainLabel.snp.bottom).offset(60)
+            make.top.equalTo(mainLabel.snp.bottom).offset(ComputedHeight(60))
             make.centerX.equalToSuperview()
-            make.width.equalTo(100)
+            make.width.equalTo(ComputedWidth(100))
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(iconImage.snp.bottom).offset(50)
+            make.top.equalTo(iconImage.snp.bottom).offset(ComputedHeight(50))
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().inset(16)
             
@@ -183,22 +183,23 @@ class LoginViewController: BaseViewController{
         }
         
         forgotPassButtonLabel.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(14)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(ComputedHeight(14))
             make.trailing.equalToSuperview().inset(30)
 
         }
         
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(forgotPassButtonLabel).offset(50)
+            make.top.equalTo(forgotPassButtonLabel).offset(ComputedHeight(50))
             make.trailing.equalToSuperview().inset(30)
             make.leading.equalToSuperview().offset(30)
-            make.height.equalTo(60)
+            make.height.equalTo(ComputedHeight(60))
         }
         
         lastLabelStack.snp.makeConstraints { make in
-            make.top.lessThanOrEqualTo(loginButton.snp.bottom).offset(160)
+            make.top.equalTo(loginButton.snp.bottom).offset(ComputedHeight(160))
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().inset(30)
+            make.bottom.equalToSuperview().offset(-20)
         }
         
     }

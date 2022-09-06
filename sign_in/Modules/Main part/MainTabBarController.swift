@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class MainTabBarController: UITabBarController{
     
     
@@ -24,34 +23,15 @@ class MainTabBarController: UITabBarController{
     }
     
     func setupViewControllers(){
-        setViewControllers([setupMainVC(), setupProfileVC()], animated: true)
+        setViewControllers([setupCurrentViewController(.main), setupCurrentViewController(.profile), setupCurrentViewController(.settings), setupCurrentViewController(.more)], animated: true)
     }
+
     
-    private func setupMainVC() -> UIViewController{
-        let vc = MainViewController()
-        vc.tabBarItem.title = "Main"
-       
-        vc.tabBarItem.image = UIImage(named: "home")?.withTintColor(UIColor.white)
-        vc.tabBarItem.selectedImage = UIImage(named: "home")?.withTintColor(UIColor.blue)
-        
-        return vc
-    }
-    
-    private func setupProfileVC() -> UIViewController{
-        let vc = ProfileViewController()
-        vc.tabBarItem.title = "Profile"
-      
-        vc.tabBarItem.image = UIImage(named: "profile")?.withTintColor(UIColor.white)
-        vc.tabBarItem.selectedImage = UIImage(named: "profile")?.withTintColor(UIColor.blue)
-        
-        return vc
-    }
-    
-    func setupMainViewController(_ viewControllerType: ViewControllerType) -> UIViewController{
+    func setupCurrentViewController(_ viewControllerType: ViewControllerType) -> UIViewController{
         let vc = viewControllerType.viewController
         vc.tabBarItem.title = viewControllerType.title
         vc.tabBarItem.image = viewControllerType.unselectedImage
-        vc.tabBarItem.image = viewControllerType.selectedImage
+        vc.tabBarItem.selectedImage = viewControllerType.selectedImage
         
         return vc
     }
