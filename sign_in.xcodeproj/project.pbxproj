@@ -21,6 +21,8 @@
 		3F7898BB28C38C8600DBFF83 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7898BA28C38C8600DBFF83 /* ProfileViewController.swift */; };
 		3F7898BD28C38CBB00DBFF83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */; };
 		3F7898C028C3920D00DBFF83 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7898BF28C3920D00DBFF83 /* ViewControllerType.swift */; };
+		3FAA9F9528C77F38007D9000 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA9F9428C77F38007D9000 /* MainTableViewCell.swift */; };
+		3FAA9F9728C77FAE007D9000 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */; };
 		B48E248028C727E400C7340E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E247F28C727E400C7340E /* SettingsVC.swift */; };
 		B48E248328C7283A00C7340E /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E248228C7283A00C7340E /* MoreVC.swift */; };
 		DFFD1458150AB8D19BA93B61 /* Pods_sign_in.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA05EE111750532A30D0927 /* Pods_sign_in.framework */; };
@@ -43,6 +45,8 @@
 		3F7898BA28C38C8600DBFF83 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3F7898BF28C3920D00DBFF83 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
+		3FAA9F9428C77F38007D9000 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		54A41C1F3C572C764BCF3CAC /* Pods-sign_in.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sign_in.debug.xcconfig"; path = "Target Support Files/Pods-sign_in/Pods-sign_in.debug.xcconfig"; sourceTree = "<group>"; };
 		60B01B4999FF640897ACDEC5 /* Pods-sign_in.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sign_in.release.xcconfig"; path = "Target Support Files/Pods-sign_in/Pods-sign_in.release.xcconfig"; sourceTree = "<group>"; };
 		B48E247F28C727E400C7340E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		3F7898B628C38BF400DBFF83 /* Main View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3FAA9F9328C77F22007D9000 /* Cell */,
 				3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */,
 			);
 			path = "Main View Controller";
@@ -134,6 +139,14 @@
 				3F7898BF28C3920D00DBFF83 /* ViewControllerType.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3FAA9F9328C77F22007D9000 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA9F9428C77F38007D9000 /* MainTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A276DF1979D043AA237E37C5 /* Frameworks */ = {
@@ -180,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				3F593C4E28BE463D00B14AF9 /* BaseViewController.swift */,
+				3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -339,10 +353,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FAA9F9728C77FAE007D9000 /* BaseTableViewCell.swift in Sources */,
 				B48E248028C727E400C7340E /* SettingsVC.swift in Sources */,
 				3F4C172C28C0EF6E002CAC11 /* SignUpViewController.swift in Sources */,
 				3F7898C028C3920D00DBFF83 /* ViewControllerType.swift in Sources */,
 				B48E248328C7283A00C7340E /* MoreVC.swift in Sources */,
+				3FAA9F9528C77F38007D9000 /* MainTableViewCell.swift in Sources */,
 				3F7898BD28C38CBB00DBFF83 /* MainViewController.swift in Sources */,
 				3F593C4D28BE411F00B14AF9 /* LoginViewController.swift in Sources */,
 				3F7898B528C389F900DBFF83 /* MainTabBarController.swift in Sources */,
