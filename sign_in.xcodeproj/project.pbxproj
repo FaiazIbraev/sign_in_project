@@ -25,6 +25,10 @@
 		3FAA9F9728C77FAE007D9000 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */; };
 		B48E248028C727E400C7340E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E247F28C727E400C7340E /* SettingsVC.swift */; };
 		B48E248328C7283A00C7340E /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E248228C7283A00C7340E /* MoreVC.swift */; };
+		B4DCBACA28D037E900D285FE /* URLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DCBAC928D037E900D285FE /* URLStrings.swift */; };
+		B4DCBACC28D03B5E00D285FE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DCBACB28D03B5E00D285FE /* NetworkManager.swift */; };
+		B4DCBACF28D03DA000D285FE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DCBACE28D03DA000D285FE /* MainViewModel.swift */; };
+		B4DCBAD228D0429A00D285FE /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DCBAD128D0429A00D285FE /* PopularMovies.swift */; };
 		DFFD1458150AB8D19BA93B61 /* Pods_sign_in.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA05EE111750532A30D0927 /* Pods_sign_in.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		60B01B4999FF640897ACDEC5 /* Pods-sign_in.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sign_in.release.xcconfig"; path = "Target Support Files/Pods-sign_in/Pods-sign_in.release.xcconfig"; sourceTree = "<group>"; };
 		B48E247F28C727E400C7340E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		B48E248228C7283A00C7340E /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		B4DCBAC928D037E900D285FE /* URLStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLStrings.swift; sourceTree = "<group>"; };
+		B4DCBACB28D03B5E00D285FE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B4DCBACE28D03DA000D285FE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B4DCBAD128D0429A00D285FE /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
 		DDA05EE111750532A30D0927 /* Pods_sign_in.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sign_in.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +104,7 @@
 		3F593C3328BE3EFE00B14AF9 /* sign_in */ = {
 			isa = PBXGroup;
 			children = (
+				B4DCBAC828D037C200D285FE /* Network Service */,
 				3F7898BE28C391FE00DBFF83 /* Utilities */,
 				B48E247C28C35D0C00C7340E /* Resources */,
 				B48E247728C35C8200C7340E /* Modules */,
@@ -119,6 +128,8 @@
 		3F7898B628C38BF400DBFF83 /* Main View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B4DCBAD028D0428700D285FE /* Model */,
+				B4DCBACD28D03D8C00D285FE /* ViewModel */,
 				3FAA9F9328C77F22007D9000 /* Cell */,
 				3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */,
 			);
@@ -239,6 +250,31 @@
 			path = "More View Controller";
 			sourceTree = "<group>";
 		};
+		B4DCBAC828D037C200D285FE /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				B4DCBAC928D037E900D285FE /* URLStrings.swift */,
+				B4DCBACB28D03B5E00D285FE /* NetworkManager.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		B4DCBACD28D03D8C00D285FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4DCBACE28D03DA000D285FE /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4DCBAD028D0428700D285FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4DCBAD128D0429A00D285FE /* PopularMovies.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4DCBAD228D0429A00D285FE /* PopularMovies.swift in Sources */,
+				B4DCBACC28D03B5E00D285FE /* NetworkManager.swift in Sources */,
 				3FAA9F9728C77FAE007D9000 /* BaseTableViewCell.swift in Sources */,
 				B48E248028C727E400C7340E /* SettingsVC.swift in Sources */,
 				3F4C172C28C0EF6E002CAC11 /* SignUpViewController.swift in Sources */,
@@ -365,6 +403,8 @@
 				3F593C4F28BE463D00B14AF9 /* BaseViewController.swift in Sources */,
 				3F7898B328C384AF00DBFF83 /* NSObject.swift in Sources */,
 				3F7898BB28C38C8600DBFF83 /* ProfileViewController.swift in Sources */,
+				B4DCBACF28D03DA000D285FE /* MainViewModel.swift in Sources */,
+				B4DCBACA28D037E900D285FE /* URLStrings.swift in Sources */,
 				3F593C3528BE3EFE00B14AF9 /* AppDelegate.swift in Sources */,
 				3F593C5228BE51E300B14AF9 /* TextField.swift in Sources */,
 				3F4C173028C0F50A002CAC11 /* ViewController.swift in Sources */,

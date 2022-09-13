@@ -24,7 +24,7 @@ class MainTableViewCell: BaseTableViewCell{
     
     private lazy var mainImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
         image.image = UIImage(systemName: "power")
         
         return image
@@ -49,6 +49,9 @@ class MainTableViewCell: BaseTableViewCell{
         return label
     }()
     
+    
+    let networkManager = NetworkManager()
+    
     override func setupViews() {
         super.setupViews()
         
@@ -71,10 +74,9 @@ class MainTableViewCell: BaseTableViewCell{
         }
         
         mainImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(0)
-            make.leading.equalToSuperview().offset(0)
-            make.bottom.equalToSuperview().offset(0)
-            make.size.equalTo(50)
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.width.equalTo(60)
         }
         
         mainTitle.snp.makeConstraints { make in
@@ -94,5 +96,17 @@ class MainTableViewCell: BaseTableViewCell{
     }
     
     
+    func config(movie: PopularMovie){
+        mainTitle.text = movie.original_title
+        descTitle.text = movie.overview
+        
+        if let imagePath = movie.poster_path{
+            networkManager.getImage(endPath: imagePath) { [weak self] (imageData) in
+                DispatchQueue.main.async {
+                    self?.mainImage.image = UIImage(data: imageData)
+                }
+            }
+        }
+    }
     
 }
