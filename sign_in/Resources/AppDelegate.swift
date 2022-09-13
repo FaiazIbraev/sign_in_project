@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 var window: UIWindow?
     
+    var navController: UINavigationController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -44,10 +46,10 @@ var window: UIWindow?
     }
     
     func navController(vc:UIViewController) -> UINavigationController{
-        let viewController = UINavigationController(rootViewController: vc)
-        viewController.navigationBar.isHidden = true
+        navController = UINavigationController(rootViewController: vc)
+        navController?.navigationBar.isHidden = true
         
-        return viewController
+        return navController ?? UINavigationController()
     }
 
 }

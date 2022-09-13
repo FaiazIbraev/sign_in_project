@@ -26,7 +26,7 @@ class MainViewController: BaseViewController{
         tv.delegate = self
         tv.dataSource = self
         tv.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
-        tv.estimatedRowHeight = 80
+        tv.estimatedRowHeight = 60
         tv.rowHeight = UITableView.automaticDimension
         tv.isScrollEnabled = true
         
@@ -93,6 +93,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailedVC()
+        navigationController?.pushViewController(vc, animated: true)
+        
+        print("Tap to movie")
     }
     
     
