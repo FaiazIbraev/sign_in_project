@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension LoginViewController{
+extension UIViewController{
     var appDelegate: AppDelegate{
         UIApplication.shared.delegate as! AppDelegate
     }

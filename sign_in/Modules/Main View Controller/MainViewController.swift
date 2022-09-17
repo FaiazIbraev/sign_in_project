@@ -96,11 +96,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailedVC()
-        navigationController?.pushViewController(vc, animated: true)
-        
-        print("Tap to movie")
+        if let popularMovies = popularMovies, let result = popularMovies.results{
+            let movie = result[indexPath.row]
+            let id: Int = movie.id ?? 0
+            let posterPath: String = movie.poster_path ?? ""
+            
+            let vc = DetailedVC(id: id, posterPath: posterPath)
+            
+            appDelegate.navController?.pushViewController(vc, animated: true)
+            
+            print("Tap to movie")
+        }
     }
-    
     
 }

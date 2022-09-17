@@ -13,10 +13,15 @@ class DetailedVC: BaseViewController{
     private lazy var backButton: UIImageView = {
         let back = UIImageView()
         back.contentMode = .scaleAspectFit
-        back.image = UIImage(named: "path")
+        back.image = UIImage(systemName: "arrowshape.turn.up.backward.fill")
+        back.tintColor = .white
         back.layer.cornerRadius = ComputedHeight(10)
-        back.layer.borderWidth = 2
-        back.layer.borderColor = UIColor.green.cgColor
+        back.layer.borderWidth = 1
+        back.layer.borderColor = UIColor.white.cgColor
+     
+        back.isUserInteractionEnabled = true
+        let backButtonTapped = UITapGestureRecognizer(target: self, action: #selector(backButtonTappedFunc))
+        back.addGestureRecognizer(backButtonTapped)
         
         return back
     }()
@@ -78,7 +83,42 @@ class DetailedVC: BaseViewController{
         
         return duration
     }()
+
+    private lazy var mainTitleLabel: UILabel = {
+        let label = UILabel ()
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
+        label.textColor = .white
+        label.text = "Joker"
+        label.textAlignment = .left
+        
+        return label
+    }()
     
+    private lazy var descTitleLabel: UILabel = {
+        let label = UILabel ()
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textColor = .white
+        label.text = "descdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdescdesc"
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    let networkManager = NetworkManager()
+    
+    let id: Int
+    let posterPath: String
+    
+    init(id: Int, posterPath: String){
+        self.id = id
+        self.posterPath = posterPath
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func setupViews() {
         super.setupViews()
@@ -87,6 +127,8 @@ class DetailedVC: BaseViewController{
         view.addSubview(backButton)
         view.addSubview(posterImage)
         view.addSubview(descStackView)
+        view.addSubview(mainTitleLabel)
+        view.addSubview(descTitleLabel)
         
         [linkToHomeLabel, ratingLabel, genreLabel, durationLabel].forEach{descStackView.addArrangedSubview($0)}
         
@@ -114,5 +156,53 @@ class DetailedVC: BaseViewController{
             make.height.equalTo(ComputedHeight(20))
         }
         
+        mainTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(descStackView.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(ComputedWidth(16))
+            make.height.equalTo(22)
+        }
+        
+        descTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(mainTitleLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(ComputedWidth(16))
+            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+        }
+        
     }
+    
+    override func setupValues() {
+        super.setupValues()
+        getPoster()
+        getMovieData()
+    }
+    
+    func getMovieData(){
+        networkManager.getDetailedData(id: id) { (response) in
+            DispatchQueue.main.async {
+                self.mainTitleLabel.text = response.original_title
+                self.descTitleLabel.text = response.overview
+                self.linkToHomeLabel.text = response.homepage
+                self.ratingLabel.text = response.original_language
+                self.genreLabel.text = response.genres?[0].name
+                self.durationLabel.text = "\(response.runtime ?? 0)"
+            }
+        }
+    }
+    
+    func getPoster(){
+            networkManager.getImage(endPath: posterPath) { [weak self] (imageData) in
+                DispatchQueue.main.async {
+                    self?.posterImage.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
+}
+
+extension DetailedVC{
+    @objc func backButtonTappedFunc(){
+        appDelegate.navController?.popViewController(animated: true)
+        print("Back button")
+    }
+    
 }

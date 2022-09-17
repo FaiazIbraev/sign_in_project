@@ -17,3 +17,6 @@ struct PopularMovie: Codable{
     var poster_path: String?
     var overview: String?
 }
+
+
+
