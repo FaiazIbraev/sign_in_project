@@ -17,6 +17,7 @@ class MainTabBarController: UITabBarController{
     }
     
     func setupTabBarAppereance(){
+        self.selectedIndex = 1
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .lightGray
         

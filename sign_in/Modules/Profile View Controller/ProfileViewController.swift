@@ -6,10 +6,27 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileViewController: BaseViewController{
+    
+    private lazy var historyBaseButton = BaseButton()
+    
     override func setupViews() {
         super.setupViews()
-        view.backgroundColor = .red
+        view.addSubview(historyBaseButton)
+        
     }
+    
+    override func setupConstraints() {
+        super.setupConstraints()
+        
+        historyBaseButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(100)
+        }
+    }
+    
+    
 }

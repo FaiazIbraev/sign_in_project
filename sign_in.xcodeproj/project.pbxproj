@@ -23,6 +23,8 @@
 		3F7898BD28C38CBB00DBFF83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */; };
 		3F7898C028C3920D00DBFF83 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7898BF28C3920D00DBFF83 /* ViewControllerType.swift */; };
 		3F79423B28D5F89500A6B19C /* DetailedMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79423A28D5F89500A6B19C /* DetailedMovieModel.swift */; };
+		3F79424028D5FB1A00A6B19C /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79423F28D5FB1A00A6B19C /* BaseButton.swift */; };
+		3F79424328D5FFC000A6B19C /* BaseButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F79424228D5FFC000A6B19C /* BaseButtonType.swift */; };
 		3FAA9F9528C77F38007D9000 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA9F9428C77F38007D9000 /* MainTableViewCell.swift */; };
 		3FAA9F9728C77FAE007D9000 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */; };
 		B48E248028C727E400C7340E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E247F28C727E400C7340E /* SettingsVC.swift */; };
@@ -53,6 +55,8 @@
 		3F7898BC28C38CBB00DBFF83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3F7898BF28C3920D00DBFF83 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		3F79423A28D5F89500A6B19C /* DetailedMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedMovieModel.swift; sourceTree = "<group>"; };
+		3F79423F28D5FB1A00A6B19C /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		3F79424228D5FFC000A6B19C /* BaseButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonType.swift; sourceTree = "<group>"; };
 		3FAA9F9428C77F38007D9000 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		3FAA9F9628C77FAE007D9000 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		54A41C1F3C572C764BCF3CAC /* Pods-sign_in.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sign_in.debug.xcconfig"; path = "Target Support Files/Pods-sign_in/Pods-sign_in.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		3F593C3328BE3EFE00B14AF9 /* sign_in */ = {
 			isa = PBXGroup;
 			children = (
+				3F79424128D5FFAC00A6B19C /* Enum */,
+				3F79423D28D5FAFE00A6B19C /* CustomViews */,
 				3F52401F28D0B8B40042A76A /* Detailed View Controller */,
 				B4DCBAC828D037C200D285FE /* Network Service */,
 				3F7898BE28C391FE00DBFF83 /* Utilities */,
@@ -172,6 +178,22 @@
 				3F79423A28D5F89500A6B19C /* DetailedMovieModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F79423D28D5FAFE00A6B19C /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				3F79423F28D5FB1A00A6B19C /* BaseButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		3F79424128D5FFAC00A6B19C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				3F79424228D5FFC000A6B19C /* BaseButtonType.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		3FAA9F9328C77F22007D9000 /* Cell */ = {
@@ -411,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F79424028D5FB1A00A6B19C /* BaseButton.swift in Sources */,
 				B4DCBAD228D0429A00D285FE /* PopularMovies.swift in Sources */,
 				3F79423B28D5F89500A6B19C /* DetailedMovieModel.swift in Sources */,
 				B4DCBACC28D03B5E00D285FE /* NetworkManager.swift in Sources */,
@@ -418,6 +441,7 @@
 				B48E248028C727E400C7340E /* SettingsVC.swift in Sources */,
 				3F4C172C28C0EF6E002CAC11 /* SignUpViewController.swift in Sources */,
 				3F7898C028C3920D00DBFF83 /* ViewControllerType.swift in Sources */,
+				3F79424328D5FFC000A6B19C /* BaseButtonType.swift in Sources */,
 				B48E248328C7283A00C7340E /* MoreVC.swift in Sources */,
 				3FAA9F9528C77F38007D9000 /* MainTableViewCell.swift in Sources */,
 				3F7898BD28C38CBB00DBFF83 /* MainViewController.swift in Sources */,
