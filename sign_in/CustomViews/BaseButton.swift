@@ -22,11 +22,10 @@ class BaseButton: UIView, UITextFieldDelegate{
     
     private lazy var userTextField: UITextField = {
         let tf = UITextField()
-        tf.font = .systemFont(ofSize: 18)
         tf.placeholder = "Placeholder"
         tf.borderStyle = .line
+        tf.isUserInteractionEnabled = true
         tf.delegate = self
-
         
         return tf
     }()
@@ -92,4 +91,13 @@ class BaseButton: UIView, UITextFieldDelegate{
     
 }
     
+
+
+extension BaseButton{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("asdasd")
+    }
+}
+
+
 
