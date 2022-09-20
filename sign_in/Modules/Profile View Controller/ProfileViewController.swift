@@ -10,23 +10,65 @@ import SnapKit
 
 class ProfileViewController: BaseViewController{
     
-    private lazy var historyBaseButton = BaseButton()
+    private lazy var mainLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Регистрация"
+        label.font = .systemFont(ofSize: 22, weight: .bold)
+
+        
+        return label
+    }()
+    
+    private lazy var mailBaseButton = BaseButton(.email)
+    private lazy var passBaseButton = BaseButton(.password)
+    private lazy var confirmPassBaseButton = BaseButton(.confirmPass)
     
     override func setupViews() {
         super.setupViews()
-        view.addSubview(historyBaseButton)
+        view.addSubview(mainLabel)
+        view.addSubview(mailBaseButton)
+        view.addSubview(passBaseButton)
+        view.addSubview(confirmPassBaseButton)
         
     }
     
     override func setupConstraints() {
         super.setupConstraints()
         
-        historyBaseButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(100)
+
+        mainLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(200)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(22)
+            
         }
+        
+        mailBaseButton.snp.makeConstraints { make in
+            make.top.equalTo(mainLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(100)
+            
+        }
+        
+        passBaseButton.snp.makeConstraints { make in
+            make.top.equalTo(mailBaseButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(100)
+            
+        }
+        
+        confirmPassBaseButton.snp.makeConstraints { make in
+            make.top.equalTo(passBaseButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.height.equalTo(100)
+            
+        }
+
     }
     
-    
+
 }
+
+
+    
+    

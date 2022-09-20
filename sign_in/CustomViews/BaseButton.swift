@@ -7,29 +7,89 @@
 
 
 import UIKit
+import SnapKit
 
-class BaseButton: UIView{
+class BaseButton: UIView, UITextFieldDelegate{
     
+    private lazy var descLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hello"
+        label.backgroundColor = .green
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        
+        return label
+    }()
     
-    init(){
+    private lazy var userTextField: UITextField = {
+        let tf = UITextField()
+        tf.font = .systemFont(ofSize: 18)
+        tf.placeholder = "Placeholder"
+        tf.borderStyle = .line
+        tf.delegate = self
+
+        
+        return tf
+    }()
+    
+    private lazy var incorrectPassLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .yellow
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        
+        return label
+    }()
+    
+    var type : BaseButtonType
+    
+    init(_ type: BaseButtonType){
+        self.type = type
         super.init(frame: .zero)
         setupViews()
         setupConstraints()
+        setupValues()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func setupViews(){
-        self.layer.cornerRadius = 20
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.black.cgColor
+
+        self.addSubview(descLabel)
+        self.addSubview(userTextField)
+        self.addSubview(incorrectPassLabel)
     }
     
     
-    func setupConstraints(){
+    private func setupConstraints(){
+
+        descLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.height.equalTo(18)
+        }
+        
+        userTextField.snp.makeConstraints { make in
+            make.top.equalTo(descLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview()
+            make.height.equalTo(18)
+        }
+        
+        incorrectPassLabel.snp.makeConstraints { make in
+            make.top.equalTo(userTextField.snp.bottom).offset(10)
+            make.leading.equalToSuperview()
+            make.height.equalTo(18)
+    
+        }
         
     }
     
+    private func setupValues(){
+        descLabel.text = type.title
+        incorrectPassLabel.text = type.incorrectPass
+    }
+    
 }
+    
+
